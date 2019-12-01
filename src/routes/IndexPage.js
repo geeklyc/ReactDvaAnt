@@ -3,7 +3,8 @@ import { connect } from "dva";
 import { Row, Col, Form } from "antd";
 import styles from "./IndexPage.css";
 import DropMenuView from "./DropMenuView";
-import SelectView from "./DropMenuView/SelectView";
+// import SelectView from "./DropMenuView/SelectView";
+import SplitFormDemo from './SplitForm/SplitFormDemo';
 
 class IndexPage extends PureComponent {
   render() {
@@ -42,23 +43,25 @@ class IndexPage extends PureComponent {
       }
     ];
 
-    const { getFieldDecorator } = this.props.form;
     return (
-      <div className={styles.test}>
-        <Form>
-          {/* <Row> */}
-          {fields.map(item => {
-            return (
-              <Form.Item label={item.label}>
-                {getFieldDecorator(item.label, {
-                  initialValue: { number: item.value }
-                })(<SelectView></SelectView>)}
-              </Form.Item>
-            );
-          })}
-          {/* </Row> */}
-        </Form>
-      </div>
+      <SplitFormDemo>
+
+      </SplitFormDemo>
+      // <div className={styles.test}>
+      //   <Form>
+      //     {/* <Row> */}
+      //     {fields.map(item => {
+      //       return (
+      //         <Form.Item label={item.label}>
+      //           {getFieldDecorator(item.label, {
+      //             initialValue: { number: item.value }
+      //           })(<SelectView></SelectView>)}
+      //         </Form.Item>
+      //       );
+      //     })}
+      //     {/* </Row> */}
+      //   </Form>
+      // </div>
     );
   }
 }
